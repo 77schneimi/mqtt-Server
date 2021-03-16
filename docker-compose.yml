@@ -1,19 +1,36 @@
-version: '2'
+version: '3.3'
 
 services:
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./html:/var/www/html
 
-  mosquitto:
-    hostname: mosquitto
-    image: eclipse-mosquitto:2.0.7
-    container_name: mqttlocal
-    #network_mode: host
+  php:
+    image: mhoffmann/php-fpm7
     restart: always
     volumes:
-      - ./mosquitto/config:/mosquitto/config/
-      - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log/mosquitto.log
+      - ./html:/var/www/html
+    networks:
+      default:
+        aliases:
+          - fpm
+          
+  mosquitto:
+    container_name: mqtt
+    image: eclipse-mosquitto:1.5.6
+    restart: always
     ports:
-      - "1883:1883" # MQTT Port
-      - "9001:9001" # WS Port
-#    environment:
-#      - TZ=Europe/Berlin
+      - "1883:1883"
+    volumes:
+      - ./mqtt/config:/mosquitto/config:rw
+      - ./mqtt/data:/mosquitto/data
+      - ./mqtt/log:/mosquitto/log
+      
+networks:
+  default:
+    driver: "bridge"
