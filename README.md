@@ -1,6 +1,6 @@
 # MQTT Server
 
-with Eclipse Mosquito 1.5.6
+with Eclipse Mosquito 2.0.9 (Date 23/03/2021)
 
 ## How to run
 
