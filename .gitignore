@@ -1,2 +1,5 @@
 .DS_Store
 mqtt/config/mosquitto.passwd
+mqttUsers.txt
+mqtt/data/mosquitto.db
+mqtt/log/mosquitto.log

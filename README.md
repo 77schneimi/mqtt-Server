@@ -14,7 +14,7 @@ Set Username & Password for Connections to Mosquitto (Anonymous is disabled)
 Create file _mosquitto.passwd_ in mqtt/config/
 
 ```sh
-mosquitto_passwd -b /mqtt/config/mosquitto.passwd MYUSERNAME MYPASSWORD
+docker-compose exec mosquitto sh -c "mosquitto_passwd /mosquitto/config/mosquitto.passwd [YOUR_USER]"
 ```
 
 Restart docker Containers
@@ -22,6 +22,10 @@ Restart docker Containers
 ```sh
 docker-compose restart
 ```
+
+## Test Client
+
+For test, you can use a client like [MQTT Ecplorer](http://mqtt-explorer.com)
 
 ## some Docs
 
