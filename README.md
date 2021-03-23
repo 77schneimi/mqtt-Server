@@ -1,26 +1,34 @@
-# dockerized-mosquitto-php
+# MQTT Server
 
-with PHP-FPM 7.3.2, Eclipse Mosquito 1.5.6 and NGINX (latest)
+with Eclipse Mosquito 1.5.6
 
-First Start</br>
-`docker-compose up -d`
+## How to run
 
-We need the Container ID from eclipse:mosquitto<br>
-`docker ps`
+```sh
+docker-compose up -d
+```
 
-Start Shell with Container ID from Step 2<br>
-`docker exec -it CONTAINERID_ECLIPSE_MOSQUITTO /bin/ash`
+### set user and password
 
-Set Username & Password for Connections to Mosquitto (Anonymous is disabled)<br>
-`mosquitto_passwd -b /mosquitto/config/passwd MYUSERNAME MYPASSWORD`
+Set Username & Password for Connections to Mosquitto (Anonymous is disabled)
+Create file _mosquitto.passwd_ in mqtt/config/
 
-Restart docker Containers<br>
-`docker-compose restart`
+```sh
+mosquitto_passwd -b /mqtt/config/mosquitto.passwd MYUSERNAME MYPASSWORD
+```
 
-Mosquitto-PHP Documentation<br>
+Restart docker Containers
 
-https://mosquitto-php.readthedocs.io/en/latest/index.html
+```sh
+docker-compose restart
+```
 
-## Source
+## some Docs
 
-https://github.com/klabeh/dockerized-mosquitto-php
+### Mosquitto-PHP Documentation
+
++ https://mosquitto-php.readthedocs.io/en/latest/index.html
+
+### Source
+
++ https://github.com/klabeh/dockerized-mosquitto-php
