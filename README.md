@@ -1,6 +1,6 @@
 # MQTT Server
 
-with Eclipse Mosquito 
+with Eclipse Mosquito
 
 ## How to run
 
