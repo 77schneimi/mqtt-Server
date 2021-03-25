@@ -23,9 +23,20 @@ Restart docker Containers
 docker-compose restart
 ```
 
+### Listener
+
+Since version 2 you have to define listener in the mosquitto.conf.
+
+```sh
+listener 1883 # all
+listener 1883 127.0.0.1 # special ip address
+```
+
 ## Test Client
 
 For test, you can use a client like [MQTT Ecplorer](http://mqtt-explorer.com)
+
+Use mqtt://127.0.0.1:1833
 
 ## some Docs
 
