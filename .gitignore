@@ -1,5 +1,11 @@
 .DS_Store
-mqtt/config/mosquitto.passwd
 mqttUsers.txt
+.env
+mqtt/*
+mqtt/config
+mqtt/config/mosquitto.conf
+mqtt/config/mosquitto.passwd
+mqtt/data
+mqtt/data/mosquitto.db
+mqtt/log
 mqtt/log/mosquitto.log
-/mqtt/data/*
