@@ -10,8 +10,6 @@
       - [Listeners](#listeners)
       - [Logging](#logging)
   - [Clients](#clients)
-  - [some Docs](#some-docs)
-    - [Mosquitto-PHP Documentation](#mosquitto-php-documentation)
 
 ## General
 
@@ -71,11 +69,7 @@ log_type unsubscribe
 
 You can use a client like [MQTT Ecplorer](http://mqtt-explorer.com) for test.
 
+Use protocoll and ip: _mqtt://0.0.0.0:1833_
+
+or if configured:
 Use protocoll and ip: _mqtt://127.0.0.1:1833_
-
-## some Docs
-
-### Mosquitto-PHP Documentation
-
-- [Mosquitto-PHP](https://mosquitto-php.readthedocs.io/en/latest/index.html)
-- [dockerized-mosquitto-php](https://github.com/klabeh/dockerized-mosquitto-php)
