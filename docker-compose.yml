@@ -1,19 +1,37 @@
-version: '3.3'
-
 services:
-          
   mosquitto:
-    container_name: mqtt
-    image: eclipse-mosquitto:2.0.9
-    #network_mode: host
+    container_name: mqtt-server
+    image: eclipse-mosquitto:${ENV_IMAGE_VERSION}
     restart: always
+    env_file:
+      - ./.env
     ports:
-      - "1883:1883"
+      - 1883:1883
+    #volumes:
+    #  - ./config:/mosquitto/config:rw
+    #  - ${USB_STICK_DATA_LAKE}/mqtt/data:/mosquitto/data
+    #  - ${USB_STICK_DATA_LAKE}/mqtt/log:/mosquitto/log
     volumes:
-      - ./mqtt/config:/mosquitto/config:rw
-      - ./mqtt/data:/mosquitto/data
-      - ./mqtt/log:/mosquitto/log
-      
+      - ${CONFIG_PATH}:/mosquitto/config:rw
+      - ${DATA_PATH}:/mosquitto/data
+      - ${LOG_PATH}:/mosquitto/log
+    networks:
+      - mosquitto_networks
+    # healthcheck:
+    #   test: ["CMD", "mosquitto_sub", "-t", "$$SYS/#", "-C", "1", "-i", "healthcheck", "-W", "3"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
+    #   start_period: 20s
+  
+# -----------------------------------------------
+# NETWORKS
+# -----------------------------------------------
+# virtual networks between the containers
 networks:
+  mosquitto_networks:
+    name: mosquitto-gateway
+    driver: bridge
   default:
-    driver: "bridge"
+    name: default-gateway
+    driver: bridge

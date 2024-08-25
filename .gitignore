@@ -1,11 +1,23 @@
+#--------------------------------------
+# OS
+#--------------------------------------
 .DS_Store
-mqttUsers.txt
+
+#--------------------------------------
+# Settings
+#--------------------------------------
 .env
-mqtt/*
-mqtt/config
-mqtt/config/mosquitto.conf
-mqtt/config/mosquitto.passwd
-mqtt/data
-mqtt/data/mosquitto.db
-mqtt/log
-mqtt/log/mosquitto.log
+
+#--------------------------------------
+# Workspace
+#--------------------------------------
+config/mosquitto.conf
+config/mosquitto.passwd
+
+# Data
+data
+data/mosquitto.db
+
+# Logging
+log
+log/mosquitto.log
