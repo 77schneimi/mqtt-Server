@@ -11,13 +11,10 @@
 #--------------------------------------
 # Workspace
 #--------------------------------------
-config/mosquitto.conf
 config/mosquitto.passwd
 
 # Data
 data
-data/mosquitto.db
 
 # Logging
-log
 log/mosquitto.log
