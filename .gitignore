@@ -18,3 +18,4 @@ data
 
 # Logging
 log/mosquitto.log
+config/mosquitto.passwd.backup.PLOMnA
