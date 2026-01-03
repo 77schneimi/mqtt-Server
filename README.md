@@ -2,8 +2,8 @@
 
 - [MQTT Server](#mqtt-server)
   - [General](#general)
-  - [SetUp](#setup)
-    - [Enviroment](#enviroment)
+  - [Setup](#setup)
+    - [Environment](#environment)
   - [Docker Start](#docker-start)
     - [1. Set user and password](#1-set-user-and-password)
     - [2. Config File](#2-config-file)
@@ -15,19 +15,19 @@
 
 [MQTT Server](#mqtt-server) > [This section](#general)
 
-Running [eclipse moquitto](https://hub.docker.com/_/eclipse-mosquitto) in docker container.
+Running [eclipse mosquitto](https://hub.docker.com/_/eclipse-mosquitto) in docker container.
 
-## SetUp
+## Setup
 
 [MQTT Server](#mqtt-server) > [This section](#setup)
 
 
-### Enviroment
+### Environment
 
-[MQTT Server](#mqtt-server) > [SetUp](#setup) > [This section](#enviroment)
+[MQTT Server](#mqtt-server) > [Setup](#setup) > [This section](#environment)
 
 
-Copy the example `.env-example` file and rename to `.env`. Adjust the File Content to your enviroment
+Copy the example `.env-example` file and rename to `.env`. Adjust the File Content to your environment
 
 ## Docker Start
 
@@ -39,7 +39,7 @@ First run docker `docker-compose up -d` to start MQTT Server.
 
 [MQTT Server](#mqtt-server) > [Docker Start](#docker-start) > [This section](#1-set-user-and-password)
 
-Set Username & Password for secure Connections to MQTT-Server. Anonymous Connections was disabled.
+Set Username & Password for secure Connections to MQTT-Server. Anonymous Connections were disabled.
 
 Create empty file _mosquitto.passwd_ in mqtt/config/
 
@@ -83,16 +83,15 @@ log_type subscribe
 log_type unsubscribe
 ```
 
-> In case of troubleshooting look at the Log File. Maybe you have to grant access by CMD `sudo chmod777 osquitto.log`.
-
+> In case of troubleshooting look at the Log File. Maybe you have to grant access by CMD `sudo chmod777 mosquitto.log`.
 
 ## Clients
 
 [MQTT Server](#mqtt-server) > [This section](#clients)
 
-You can use a client like [MQTT Ecplorer](http://mqtt-explorer.com) for test.
+You can use a client like [MQTT Explorer](http://mqtt-explorer.com) for test.
 
-Use protocoll and IP: _mqtt://0.0.0.0:1833_
+Use protocol and IP: _mqtt://0.0.0.0:1883_
 
 or if configured:
-Use protocoll and ip: _mqtt://127.0.0.1:1833_
+Use protocol and IP: _mqtt://127.0.0.1:1883_
