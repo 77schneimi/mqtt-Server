@@ -1,32 +1,36 @@
 # Troubleshooting
 
 - [Troubleshooting](#troubleshooting)
-  - [Logs](#logs)
-    - [Permission](#permission)
+  - [Permission](#permission)
+    - [Logs](#logs)
     - [Password File](#password-file)
-    - [Address](#address)
-    - [Docker Shutdown](#docker-shutdown)
+  - [Address](#address)
+  - [Docker Shutdown](#docker-shutdown)
 
-## Logs
+## Permission
 
-[Troubleshooting](#troubleshooting) > [This section](#logs)
+[Troubleshooting](#troubleshooting) > [This section](#permission)
 
-### Permission
+To fix these errors you can use the script `fix_permissions.sh` in the scripts directory.
 
-[Troubleshooting](#troubleshooting) > [Logs](#logs) > [This section](#permission)
+### Logs
 
-```sh
-1732031352: Warning: File /mosquitto/config/mosquitto.passwd has world readable permissions. Future versions will refuse to load this file.
-To fix this, use `chmod 0700 /mosquitto/config/mosquitto.passwd`.
-```
+[Troubleshooting](#troubleshooting) > [Permission](#permission) > [This section](#logs)
+
+> [!WARNING]
+> File /mosquitto/config/mosquitto.passwd has world readable permissions. Future versions
+> will refuse to load this file.
+> To fix this, use `chmod 0700 /mosquitto/config/mosquitto.passwd`.
 
 Solution: As described grant access!
 
 ### Password File
 
-[Troubleshooting](#troubleshooting) > [Logs](#logs) > [This section](#password-file)
+[Troubleshooting](#troubleshooting) > [Permission](#permission) > [This section](#password-file)
 
-Warning: File /mosquitto/config/mosquitto.passwd owner is not root. Future versions will refuse to load this file. To fix this, use `chown root /mosquitto/config/mosquitto.passwd`. Warning: File /mosquitto/config/mosquitto.passwd group is not root. Future versions will refuse to load this file.
+> [!WARNING]
+> File /mosquitto/config/mosquitto.passwd owner is not root. Future versions will refuse to
+> load this file. To fix this, use `chown root /mosquitto/config/mosquitto.passwd`.
 
 Solution: Go to the File Directory where the mosquitto.passwd File is located. And run CMD
 
@@ -34,17 +38,17 @@ Solution: Go to the File Directory where the mosquitto.passwd File is located. A
 sudo chown root mosquitto.passwd
 ```
 
-### Address
+## Address
 
-[Troubleshooting](#troubleshooting) > [Logs](#logs) > [This section](#address)
+[Troubleshooting](#troubleshooting) > [This section](#address)
 
 ```sh
 1732031628: Error: Address in use
 ```
- 
-### Docker Shutdown
 
-[Troubleshooting](#troubleshooting) > [Logs](#logs) > [This section](#docker-shutdown)
+## Docker Shutdown
+
+[Troubleshooting](#troubleshooting) > [This section](#docker-shutdown)
 
 If you try to shutdown the docker the error occurs:
 

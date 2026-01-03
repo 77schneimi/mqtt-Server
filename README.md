@@ -1,5 +1,8 @@
 # MQTT Server
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)  
+![Mosquitto](https://img.shields.io/badge/mosquitto-latest-orange?logo=eclipsemosquitto)
+
 - [MQTT Server](#mqtt-server)
   - [General](#general)
   - [Setup](#setup)
@@ -21,11 +24,9 @@ Running [eclipse mosquitto](https://hub.docker.com/_/eclipse-mosquitto) in docke
 
 [MQTT Server](#mqtt-server) > [This section](#setup)
 
-
 ### Environment
 
 [MQTT Server](#mqtt-server) > [Setup](#setup) > [This section](#environment)
-
 
 Copy the example `.env-example` file and rename to `.env`. Adjust the File Content to your environment
 
@@ -43,7 +44,7 @@ Set Username & Password for secure Connections to MQTT-Server. Anonymous Connect
 
 Create empty file _mosquitto.passwd_ in mqtt/config/
 
-```sh
+```bash
 docker compose exec mosquitto sh -c "mosquitto_passwd /mosquitto/config/mosquitto.passwd [YOUR_USER]"
 ```
 
@@ -83,7 +84,8 @@ log_type subscribe
 log_type unsubscribe
 ```
 
-> In case of troubleshooting look at the Log File. Maybe you have to grant access by CMD `sudo chmod777 mosquitto.log`.
+> [!NOTE]
+> In case of troubleshooting look at the Log File. Maybe you have to grant access by CMD `sudo chmod777 mosquitto.log`. see [Troubleshooting](doc/Troubleshooting.md)
 
 ## Clients
 
